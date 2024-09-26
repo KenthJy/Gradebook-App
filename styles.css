@@ -61,3 +61,8 @@ span{
     font-weight:700 ;
     color: red;
 }
+
+.container2{
+    background-color: blue;
+    display: flex;
+}
