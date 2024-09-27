@@ -3,6 +3,7 @@ import { users } from "./data.js"
 const content = document.getElementById("content")
 const main = document.getElementById("container")
 let score = ""
+let message = ""
 
 setTimeout(loadingScreen,0)
 
@@ -14,17 +15,17 @@ function loadingScreen(){
 
 function render(){
     let myHtml = ``
-    
+        
     users[0].grades.forEach(gradeEntry =>{
         myHtml +=
         `
         <div class="container-of-subj1">
+            <p class="subject">${gradeEntry.subject}</p>
+        
             <div class="container-of-subj11">
-            <p>${gradeEntry.subject}</p>
-            </div>
-            <p>Grades:</p>
+            <p class="grades">Grades:</p>
             <p>${gradeEntry.grade}</p>
-        </div>
+            </div>
         </div>
         `
     })
@@ -32,7 +33,7 @@ function render(){
     const theUsers = users.map(function(user){
         content.innerHTML = 
         `<div class ="container1">
-        <h3>Hi ${user.name},</h3>
+        <h3 id="user-name">Hi ${user.name},</h3>
          <div class="container11">
         <p>You have <span class"user-tests">${user.tests[0]} pending test</span> this week</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -50,8 +51,10 @@ function render(){
 
         <div class="container2">
             <div class="container-21">
-            <h2>Your Grade is <span class"points"></span></h2>
-            <p>Calculate your grade by this simple app</p>
+            
+            <h2>    <span class"points">${score}</span> </h2>
+            <p>${message}</p>
+            
             </div>
             <div class="container-22">
             <button>Calculate Your Grade</button>
@@ -59,13 +62,12 @@ function render(){
         </div>
         
 
-        <h3>You have ${user.grades.length} Subjects</h3>
+        <h3 class="grades-length">You have ${user.grades.length} Subjects</h3>
 
         <div class="container-of-subj">
             ${myHtml}
         </div>
         `
-        
     })
 
 }
