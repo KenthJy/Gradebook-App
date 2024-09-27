@@ -2,8 +2,9 @@ import { users } from "./data.js"
 
 const content = document.getElementById("content")
 const main = document.getElementById("container")
-let score = ""
+let average = 0
 let message = ""
+
 
 setTimeout(loadingScreen,0)
 
@@ -13,6 +14,18 @@ function loadingScreen(){
  setTimeout(render, 3000);
 }   
 
+function getAverage() {
+    let sum = 0;
+  
+    users[0].grades.forEach((score) => {
+      sum += score.grade;
+    });
+  
+    // Assign the result to the average variable
+    return sum / users[0].grades.length;
+  }
+average = getAverage()
+console.log(average)
 function render(){
     let myHtml = ``
         
@@ -52,7 +65,7 @@ function render(){
         <div class="container2">
             <div class="container-21">
             
-            <h2>    <span class"points">${score}</span> </h2>
+            <h2>    <span class"points">${average}</span> </h2>
             <p>${message}</p>
             
             </div>
