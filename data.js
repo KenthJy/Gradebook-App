@@ -1,5 +1,26 @@
 export const users = [{
     name : "Ken",
-    grades : [90, 91, 93, 96, 97, 100],
+    grades : [
+        {
+            subject : "Math",
+            grade : "90",
+        },
+        {
+            subject : "English",
+            grade : "91",   
+        },
+        {
+            subject : "Calculus",
+            grade : "92",
+        },
+        {
+            subject : "Philosophy",
+            grade : "98",
+        },
+        {
+            subject : "Biology",
+            grade : "97",
+        }
+    ],
     tests : [4]
 }]
